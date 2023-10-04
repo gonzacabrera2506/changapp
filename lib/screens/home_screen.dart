@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
         MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     });
+
     return Scaffold(
       backgroundColor: Colors.amber,
       body: Center(
