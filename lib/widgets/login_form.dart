@@ -18,7 +18,25 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextFormField(
-              decoration: const InputDecoration(hintText: 'Email'),
+              decoration: InputDecoration(
+                  hintText: 'Email',
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(color: Colors.white))),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(color: Colors.white))),
             )
           ],
         ));

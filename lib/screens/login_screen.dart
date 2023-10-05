@@ -6,8 +6,16 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: LoginForm(),
+    return const Scaffold(
+      backgroundColor: Colors.amber,
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+        crossAxisAlignment: CrossAxisAlignment.center, // Centra horizontalmente
+        children: [
+          SizedBox(width: 320, child: LoginForm()),
+        ],
+      )),
     );
   }
 }
