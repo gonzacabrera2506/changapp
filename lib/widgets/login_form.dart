@@ -1,3 +1,5 @@
+import 'package:changapp/widgets/button_widget.dart';
+import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -17,47 +19,29 @@ class _LoginFormState extends State<LoginForm> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Image.asset('assets/changappLogo.png'),
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-                hintText: 'Email',
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(color: Colors.white)),
-                filled: true,
-                fillColor: Colors.white70),
+          const TextFieldWidget(
+            hintText: 'Email',
           ),
           const SizedBox(
             height: 10,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-                hintText: 'Password',
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(color: Colors.white)),
-                filled: true,
-                fillColor: Colors.white70),
+          const TextFieldWidget(
+            hintText: 'Password',
           ),
           const SizedBox(height: 20),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber.shade600,
-                  shape: const StadiumBorder(
-                      side: BorderSide(color: Colors.black54))),
-              onPressed: () {},
-              child: const Text(
-                'Iniciar Sesión',
-                style: TextStyle(color: Colors.black45),
-              )),
-          const SizedBox(height: 35),
+          const ButtonWidget(
+            text: 'Iniciar Sesión',
+            colorText: Colors.black54,
+          ),
+          const SizedBox(height: 55),
           const Text('No estás registrado?',
-              style: TextStyle(color: Colors.black87))
+              style: TextStyle(color: Colors.black87)),
+          const SizedBox(
+            height: 10,
+          ),
+          const ButtonWidget(text: 'Registrarme', colorText: Colors.black)
         ]));
   }
 }
