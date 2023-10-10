@@ -1,3 +1,4 @@
+import 'package:changapp/screens/signup_screen.dart';
 import 'package:changapp/widgets/button_widget.dart';
 import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ class _LoginFormState extends State<LoginForm> {
     return Form(
         key: _formKey,
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          const SizedBox(
+            height: 20,
+          ),
           Image.asset('assets/changappLogo.png'),
           const SizedBox(
             height: 12,
@@ -35,13 +39,24 @@ class _LoginFormState extends State<LoginForm> {
             text: 'Iniciar Sesión',
             colorText: Colors.black54,
           ),
-          const SizedBox(height: 55),
+          const SizedBox(height: 58),
           const Text('No estás registrado?',
               style: TextStyle(color: Colors.black87)),
           const SizedBox(
             height: 10,
           ),
-          const ButtonWidget(text: 'Registrarme', colorText: Colors.black)
+          ButtonWidget(
+            text: 'Registrarme',
+            colorText: Colors.black,
+            redirect: () {
+              Future.delayed(const Duration(seconds: 2), () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignupScreen()));
+              });
+            },
+          )
         ]));
   }
 }

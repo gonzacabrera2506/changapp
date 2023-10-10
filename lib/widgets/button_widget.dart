@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   final String text;
   final Color colorText;
-  const ButtonWidget({super.key, required this.text, required this.colorText});
+  final Function()? redirect;
+  const ButtonWidget(
+      {super.key, required this.text, required this.colorText, this.redirect});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class ButtonWidget extends StatelessWidget {
             backgroundColor: Colors.amber.shade600,
             shape:
                 const StadiumBorder(side: BorderSide(color: Colors.black54))),
-        onPressed: () {},
+        onPressed: redirect,
         child: Text(
           text,
           style: TextStyle(color: colorText),
