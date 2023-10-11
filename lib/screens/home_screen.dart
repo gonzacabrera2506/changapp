@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
               CrossAxisAlignment.center, // Centra horizontalmente
           children: [
             Image.asset('assets/changappLogo.png'),
-            const Text('Changas y trabajos pequeños en el hogar...y más!!'),
+            const Text('Changas y trabajos pequeños en el hogar...y más!!',
+                style: TextStyle(fontSize: 13)),
           ],
         ),
       ),

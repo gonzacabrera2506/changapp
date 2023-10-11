@@ -35,7 +35,8 @@ class _LoginFormState extends State<LoginForm> {
             hintText: 'Password',
           ),
           const SizedBox(height: 20),
-          const ButtonWidget(
+          //TODO: reemplazar boton para login
+          const ButtonNavigateToRegister(
             text: 'Iniciar Sesión',
             colorText: Colors.black54,
           ),
@@ -45,7 +46,8 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(
             height: 10,
           ),
-          ButtonWidget(
+          //TODO: reemplazar por boton para navegar
+          ButtonNavigateToRegister(
             text: 'Registrarme',
             colorText: Colors.black,
             redirect: () {

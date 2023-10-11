@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
+class ButtonNavigateToRegister extends StatelessWidget {
   final String text;
   final Color colorText;
   final Function()? redirect;
-  const ButtonWidget(
+  const ButtonNavigateToRegister(
       {super.key, required this.text, required this.colorText, this.redirect});
 
   @override
