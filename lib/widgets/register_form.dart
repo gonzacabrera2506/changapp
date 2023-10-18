@@ -1,5 +1,6 @@
 import 'package:changapp/screens/signup_screen.dart';
 import 'package:changapp/widgets/button_widget.dart';
+import 'package:changapp/widgets/checkbox_widget.dart';
 import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,15 +27,15 @@ class _RegisterFormState extends State<RegisterForm> {
               BackButton(),
             ],
           ),
-
           Image.asset('assets/changappLogo.png', width: 190),
           const SizedBox(
             height: 8,
           ),
           const Text("Datos Personales", style: TextStyle(fontSize: 15)),
           const SizedBox(
-            height: 10,
+            height: 9,
           ),
+          //const CardWidget(),
           const TextFieldWidget(
             hintText: 'Nombre/s',
           ),
@@ -68,17 +69,21 @@ class _RegisterFormState extends State<RegisterForm> {
           const TextFieldWidget(
             hintText: 'Email',
           ),
+
           const SizedBox(
             height: 12,
           ),
           const Divider(color: Colors.black54),
           const Text("Oficios o servicios", style: TextStyle(fontSize: 15)),
           const SizedBox(
-            height: 10,
+            height: 9,
           ),
-          const TextFieldWidget(
-            hintText: 'Teléfono de contacto',
-          ),
+          const CheckBoxWidget(title: 'Albañilería'),
+          const CheckBoxWidget(title: 'Plomería'),
+          const CheckBoxWidget(title: 'Jardinería'),
+          const CheckBoxWidget(title: 'Instalación de gas'),
+          const CheckBoxWidget(title: 'Refrigeración o Aire acondicionado'),
+          const CheckBoxWidget(title: 'Transporte o mudanza'),
 
           //TODO: reemplazar por boton para navegar
           // ButtonNavigateToRegister(
