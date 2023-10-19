@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     });
 
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente

@@ -12,8 +12,8 @@ class ButtonNavigateToRegister extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.amber.shade600,
-            shape:
-                const StadiumBorder(side: BorderSide(color: Colors.black54))),
+            shape: const StadiumBorder(
+                side: BorderSide(color: Color.fromARGB(255, 174, 80, 255)))),
         onPressed: redirect,
         child: Text(
           text,
