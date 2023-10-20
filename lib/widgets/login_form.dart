@@ -15,50 +15,55 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-        key: _formKey,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          const SizedBox(
-            height: 20,
-          ),
-          Image.asset('assets/changappLogo.png'),
-          const SizedBox(
-            height: 12,
-          ),
-          const TextFieldWidget(
-            hintText: 'Email',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const TextFieldWidget(
-            hintText: 'Password',
-          ),
-          const SizedBox(height: 20),
-          //TODO: reemplazar boton para login
-          const ButtonNavigateToRegister(
-            text: 'Iniciar Sesión',
-            colorText: Colors.black54,
-          ),
-          const SizedBox(height: 58),
-          const Text('No estás registrado?',
-              style: TextStyle(color: Colors.black87)),
-          const SizedBox(
-            height: 10,
-          ),
-          //TODO: reemplazar por boton para navegar
-          ButtonNavigateToRegister(
-            text: 'Registrarme',
-            colorText: Colors.black,
-            redirect: () {
-              Future.delayed(const Duration(seconds: 2), () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignupScreen()));
-              });
-            },
-          )
-        ]));
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Form(
+          key: _formKey,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Image.asset('assets/changappLogo.png'),
+            const SizedBox(
+              height: 12,
+            ),
+            const TextFieldWidget(
+              hintText: 'Email',
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const TextFieldWidget(
+              hintText: 'Password',
+            ),
+            const SizedBox(height: 20),
+            //
+            ButtonWidget(
+              text: 'Iniciar Sesión',
+              colorText: Colors.black,
+              action: () {},
+            ),
+            const SizedBox(height: 58),
+            const Text('No estás registrado?',
+                style: TextStyle(color: Colors.black)),
+            const SizedBox(
+              height: 10,
+            ),
+            //
+            ButtonWidget(
+              text: 'Registrarme',
+              colorText: Colors.black,
+              action: () {
+                Future.delayed(const Duration(seconds: 2), () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignupScreen()));
+                });
+              },
+            )
+          ])),
+    );
   }
 }
