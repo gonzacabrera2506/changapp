@@ -1,4 +1,5 @@
-import 'package:changapp/widgets/switch_widget.dart';
+import 'package:changapp/screens/home_screen.dart';
+import 'package:changapp/widgets/button_widget.dart';
 import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 1.0, vertical: 5.0),
       child: Form(
           key: _formKey,
           child:
@@ -23,65 +24,72 @@ class _RegisterFormState extends State<RegisterForm> {
             const SizedBox(
               height: 20,
             ),
-            const Row(
+            Image.asset('assets/changappLogo.png', width: 175),
+            const SizedBox(
+              height: 6,
+            ),
+            const Text("Datos Personales",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Column(
               children: [
-                BackButton(),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Column(
+                    children: [
+                      const TextFieldWidget(
+                        hintText: 'Nombre/s',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextFieldWidget(
+                        hintText: 'Apellido',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextFieldWidget(
+                        hintText: 'Nombre fantasia(opcional)',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextFieldWidget(
+                        hintText: 'Dirección(opcional)',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextFieldWidget(
+                        hintText: 'Teléfono de contacto',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextFieldWidget(
+                        hintText: 'Email',
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ButtonWidget(
+                        text: 'Siguiente',
+                        colorText: Colors.black,
+                        action: () {
+                          Future.delayed(const Duration(seconds: 2), () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()));
+                          });
+                        },
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
-            Image.asset('assets/changappLogo.png', width: 190),
-            const SizedBox(
-              height: 8,
-            ),
-            const Text("Datos Personales", style: TextStyle(fontSize: 15)),
-            const SizedBox(
-              height: 9,
-            ),
-            //const CardWidget(),
-            const TextFieldWidget(
-              hintText: 'Nombre/s',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const TextFieldWidget(
-              hintText: 'Apellido',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const TextFieldWidget(
-              hintText: 'Nombre fantasia(opcional)',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const TextFieldWidget(
-              hintText: 'Dirección(opcional)',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const TextFieldWidget(
-              hintText: 'Teléfono de contacto',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const TextFieldWidget(
-              hintText: 'Email',
-            ),
-
-            const SizedBox(
-              height: 12,
-            ),
-            const Divider(color: Colors.grey),
-            const Text("Oficios o servicios", style: TextStyle(fontSize: 15)),
-            const SizedBox(
-              height: 9,
-            ),
-            const SwitchWidget(title: Text('Albañileria')),
-            const SwitchWidget(title: Text('Albañileria')),
-            const SwitchWidget(title: Text('Albañileria')),
           ])),
     );
   }

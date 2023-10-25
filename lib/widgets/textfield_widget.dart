@@ -9,7 +9,7 @@ class TextFieldWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: const [BoxShadow(blurRadius: 2.5)],
+          boxShadow: const [BoxShadow(blurRadius: 3.5, color: Colors.grey)],
           borderRadius: BorderRadius.circular(20)),
       child: TextFormField(
         decoration: InputDecoration(
