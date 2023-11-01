@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
-class JobsWidget extends StatefulWidget {
-  const JobsWidget({super.key});
+class JobsWidget extends StatelessWidget {
+  final Text label;
+  const JobsWidget({super.key, required this.label});
 
-  @override
-  State<JobsWidget> createState() => _JobsWidgetState();
-}
-
-class _JobsWidgetState extends State<JobsWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 1.0, vertical: 5.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+      child: Chip(
+        label: label,
+        avatar: const Icon(Icons.access_alarm_outlined),
       ),
     );
   }

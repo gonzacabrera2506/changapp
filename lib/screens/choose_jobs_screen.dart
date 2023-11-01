@@ -19,7 +19,7 @@ class ChooseJobsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              child: JobsWidget(),
+              child: JobsWidget(label: Text('data')),
             ),
           ],
         )),
