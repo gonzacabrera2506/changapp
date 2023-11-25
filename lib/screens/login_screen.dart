@@ -2,6 +2,7 @@ import 'package:changapp/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
+  static const String name = 'login_screen';
   const LoginScreen({super.key});
 
   @override

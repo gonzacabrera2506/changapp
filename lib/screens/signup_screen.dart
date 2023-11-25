@@ -1,7 +1,8 @@
-import 'package:changapp/widgets/register_form.dart';
+import 'package:changapp/widgets/signup.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
+  static const String name = 'signup_screen';
   const SignupScreen({super.key});
 
   @override
@@ -19,7 +20,7 @@ class SignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              child: RegisterForm(),
+              child: Signup(),
             ),
           ],
         )),

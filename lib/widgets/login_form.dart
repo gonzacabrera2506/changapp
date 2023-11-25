@@ -1,7 +1,9 @@
+import 'package:changapp/screens/home_screen.dart';
 import 'package:changapp/screens/signup_screen.dart';
 import 'package:changapp/widgets/button_widget.dart';
 import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -55,12 +57,7 @@ class _LoginFormState extends State<LoginForm> {
               text: 'Registrarme',
               colorText: Colors.black,
               action: () {
-                Future.delayed(const Duration(seconds: 2), () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignupScreen()));
-                });
+                context.pushNamed(SignupScreen.name);
               },
             )
           ])),

@@ -3,14 +3,14 @@ import 'package:changapp/widgets/button_widget.dart';
 import 'package:changapp/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
-class RegisterForm extends StatefulWidget {
-  const RegisterForm({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<RegisterForm> createState() => _RegisterFormState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _RegisterFormState extends State<RegisterForm> {
+class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
