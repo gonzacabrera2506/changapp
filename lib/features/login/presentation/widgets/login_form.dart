@@ -1,7 +1,6 @@
-import 'package:changapp/screens/home_screen.dart';
-import 'package:changapp/screens/signup_screen.dart';
-import 'package:changapp/widgets/button_widget.dart';
-import 'package:changapp/widgets/textfield_widget.dart';
+import 'package:changapp/features/signup/presentation/screens/signup_screen.dart';
+import 'package:changapp/shared/custom_button_widget.dart';
+import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

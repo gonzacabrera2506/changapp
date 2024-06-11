@@ -1,11 +1,11 @@
-import 'package:changapp/screens/login_screen.dart';
-import 'package:changapp/screens/screens.dart';
-import 'package:changapp/screens/signup_screen.dart';
+import 'package:changapp/features/login/presentation/screens/login_screen.dart';
+import 'package:changapp/features/home/presentation/screens.dart';
+import 'package:changapp/features/signup/presentation/screens/signup_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
-    path: '/',
+    path: '/hola',
     name: HomeScreen.name,
     builder: (context, state) => const HomeScreen(),
   ),
@@ -15,7 +15,7 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
     builder: (context, state) => const LoginScreen(),
   ),
   GoRoute(
-    path: '/signup',
+    path: '/',
     name: SignupScreen.name,
     builder: (context, state) => const SignupScreen(),
   )

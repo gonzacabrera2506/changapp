@@ -1,6 +1,7 @@
-import 'package:changapp/screens/home_screen.dart';
-import 'package:changapp/widgets/button_widget.dart';
-import 'package:changapp/widgets/textfield_widget.dart';
+import 'package:changapp/features/home/presentation/home_screen.dart';
+import 'package:changapp/shared/custom_button_widget.dart';
+import 'package:changapp/shared/custom_dropDownButton_widget.dart';
+import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -38,30 +39,39 @@ class _SignupState extends State<Signup> {
                   child: Column(
                     children: [
                       const TextFieldWidget(
+                        icon: Icon(Icons.person_outline),
                         hintText: 'Nombre/s',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const TextFieldWidget(
+                        icon: Icon(Icons.person),
                         hintText: 'Apellido',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const TextFieldWidget(
+                        icon: Icon(Icons.badge_outlined),
                         hintText: 'Nombre fantasia(opcional)',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const TextFieldWidget(
-                        hintText: 'Dirección(opcional)',
+                        icon: Icon(Icons.location_on_outlined),
+                        hintText: 'Dirección',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
+                      const ProvinceDropdown(),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const TextFieldWidget(
+                        icon: Icon(Icons.phone),
                         hintText: 'Teléfono de contacto',
                       ),
                       const SizedBox(

@@ -1,9 +1,8 @@
-import 'package:changapp/widgets/signup.dart';
+import 'package:changapp/features/signup/presentation/widgets/jobs_widget.dart';
 import 'package:flutter/material.dart';
 
-class SignupScreen extends StatelessWidget {
-  static const String name = 'signup_screen';
-  const SignupScreen({super.key});
+class ChooseJobsScreen extends StatelessWidget {
+  const ChooseJobsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class SignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              child: Signup(),
+              child: JobsWidget(label: Text('data')),
             ),
           ],
         )),
