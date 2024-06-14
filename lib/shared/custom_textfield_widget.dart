@@ -13,6 +13,8 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
+      width: 550,
+      height: 45,
       child: TextFormField(
         decoration: InputDecoration(
             prefixIcon: icon,

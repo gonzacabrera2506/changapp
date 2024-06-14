@@ -1,97 +1,81 @@
 import 'package:changapp/shared/custom_container_widget.dart';
 import 'package:flutter/material.dart';
 
-class ProvinceDropdown extends StatefulWidget {
-  const ProvinceDropdown({super.key});
-
+class CustomDropDownButton extends StatefulWidget {
   @override
-  ProvinceDropdownState createState() => ProvinceDropdownState();
+  _CustomDropDownButtonState createState() => _CustomDropDownButtonState();
 }
 
-class ProvinceDropdownState extends State<ProvinceDropdown> {
-  String? _selectedProvince;
-
-  final List<String> provinciasDeArgentina = [
-    'Buenos Aires',
-    'Catamarca',
-    'Chaco',
-    'Chubut',
-    'Córdoba',
-    'Corrientes',
-    'Entre Ríos',
-    'Formosa',
-    'Jujuy',
-    'La Pampa',
-    'La Rioja',
-    'Mendoza',
-    'Misiones',
-    'Neuquén',
-    'Río Negro',
-    'Salta',
-    'San Juan',
-    'San Luis',
-    'Santa Cruz',
-    'Santa Fe',
-    'Santiago del Estero',
-    'Tierra del Fuego',
-    'Tucumán'
-  ];
+class _CustomDropDownButtonState extends State<CustomDropDownButton> {
+  String dropdownValue = 'One';
+  bool isHovered = false;
 
   @override
   Widget build(BuildContext context) {
-    // Calcula el ancho máximo basado en la palabra más larga
-    double maxWidth = _calculateMaxWidth(context, provinciasDeArgentina);
-
-    // ignore: sized_box_for_whitespace
-    return CustomContainer(
-      width: maxWidth + 110, // Añade un margen para el icono y el padding
-      child: DropdownButtonFormField<String>(
-        decoration: InputDecoration(
-          hintText: 'Provincia:',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          isHovered = true;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          isHovered = false;
+        });
+      },
+      child: CustomContainer(
+        width: 550, // Define el ancho según tus necesidades
+        height: 45, // Define el alto según tus necesidades
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: const [BoxShadow(blurRadius: 3.5, color: Colors.grey)],
               borderRadius: BorderRadius.circular(20),
-              borderSide: const BorderSide(color: Color(0xFFffae50))),
+              border: Border.all(color: Colors.black87)),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: DropdownButton<String>(
+            icon: const Icon(Icons.arrow_drop_down),
+            borderRadius: BorderRadius.circular(20),
+            value: dropdownValue,
+            onChanged: (String? newValue) {
+              if (newValue != null) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
+              }
+            },
+            onTap: () {
+              print("hola mundo");
+            },
+            items: <String>['One', 'Two', 'Free', 'Four']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(
+                          right: 3), // Espacio entre el icono y el texto
+                      child: Icon(Icons.star), // Icono adicional al inicio
+                    ),
+                    Text(value),
+                  ],
+                ),
+              );
+            }).toList(),
+            underline: SizedBox(), // Eliminar subrayado predeterminado
+          ),
         ),
-        value: _selectedProvince,
-        onChanged: (String? newValue) {
-          setState(() {
-            _selectedProvince = newValue;
-          });
-        },
-        items:
-            provinciasDeArgentina.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Row(
-              children: [
-                const Icon(Icons.location_on, color: Color(0xFFffae50)),
-                const SizedBox(width: 3), // Espacio entre el icono y el texto
-                Text(value),
-              ],
-            ),
-          );
-        }).toList(),
       ),
     );
   }
+}
 
-  double _calculateMaxWidth(BuildContext context, List<String> items) {
-    double maxWidth = 0;
-    TextStyle textStyle = Theme.of(context).textTheme.subtitle1!;
-
-    for (String item in items) {
-      final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: item, style: textStyle),
-        maxLines: 1,
-        textDirection: TextDirection.ltr,
-      )..layout(minWidth: 0, maxWidth: double.infinity);
-      maxWidth =
-          textPainter.size.width > maxWidth ? textPainter.size.width : maxWidth;
-    }
-
-    return maxWidth;
-  }
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text('DropdownButton Demo')),
+      body: Center(child: CustomDropDownButton()),
+    ),
+  ));
 }
