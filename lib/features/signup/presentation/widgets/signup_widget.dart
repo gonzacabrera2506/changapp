@@ -1,6 +1,5 @@
 import 'package:changapp/features/home/presentation/home_screen.dart';
 import 'package:changapp/shared/custom_button_widget.dart';
-import 'package:changapp/shared/custom_container_widget.dart';
 import 'package:changapp/shared/custom_dropDownButton_widget.dart';
 import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 1.0, vertical: 5.0),
+      padding: const EdgeInsets.all(8.0),
       child: Form(
           key: _formKey,
           child:
@@ -33,53 +32,90 @@ class _SignupState extends State<Signup> {
             const Text("Datos Personales",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      const TextFieldWidget(
-                        icon: Icon(Icons.person_outline),
-                        hintText: 'Nombre/s',
+                      const Row(
+                        children: [
+                          Icon(Icons.person_outline),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Nombre/s',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const TextFieldWidget(
-                        icon: Icon(Icons.person),
-                        hintText: 'Apellido',
+                      const Row(
+                        children: [
+                          Icon(Icons.person),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Apellido',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const TextFieldWidget(
-                        icon: Icon(Icons.badge_outlined),
-                        hintText: 'Nombre fantasia(opcional)',
+                      const Row(
+                        children: [
+                          Icon(Icons.badge_outlined),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Nombre fantasia(opcional)',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const TextFieldWidget(
-                        icon: Icon(Icons.location_on_outlined),
-                        hintText: 'Dirección',
+                      const Row(
+                        children: [
+                          Icon(Icons.location_on_outlined),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Dirección',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomDropDownButton(),
+                      Row(
+                        children: [
+                          const Icon(Icons.location_city_outlined),
+                          const SizedBox(width: 3),
+                          CustomDropDownButton(),
+                        ],
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const TextFieldWidget(
-                        icon: Icon(Icons.phone),
-                        hintText: 'Teléfono de contacto',
+                      const Row(
+                        children: [
+                          Icon(Icons.phone_outlined),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Teléfono de contacto',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const TextFieldWidget(
-                        hintText: 'Email',
+                      const Row(
+                        children: [
+                          Icon(Icons.email_outlined),
+                          SizedBox(width: 3),
+                          TextFieldWidget(
+                            hintText: 'Email',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,

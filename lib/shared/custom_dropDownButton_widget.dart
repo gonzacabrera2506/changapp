@@ -7,7 +7,7 @@ class CustomDropDownButton extends StatefulWidget {
 }
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
-  String dropdownValue = 'One';
+  String dropdownValue = 'Córdoba';
   bool isHovered = false;
 
   @override
@@ -24,58 +24,80 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
         });
       },
       child: CustomContainer(
-        width: 550, // Define el ancho según tus necesidades
-        height: 45, // Define el alto según tus necesidades
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: const [BoxShadow(blurRadius: 3.5, color: Colors.grey)],
+        width: 250,
+        height: 40,
+        child: InputDecorator(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.black87)),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: DropdownButton<String>(
-            icon: const Icon(Icons.arrow_drop_down),
-            borderRadius: BorderRadius.circular(20),
-            value: dropdownValue,
-            onChanged: (String? newValue) {
-              if (newValue != null) {
-                setState(() {
-                  dropdownValue = newValue;
-                });
-              }
-            },
-            onTap: () {
-              print("hola mundo");
-            },
-            items: <String>['One', 'Two', 'Free', 'Four']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Row(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(
-                          right: 3), // Espacio entre el icono y el texto
-                      child: Icon(Icons.star), // Icono adicional al inicio
-                    ),
-                    Text(value),
-                  ],
-                ),
-              );
-            }).toList(),
-            underline: SizedBox(), // Eliminar subrayado predeterminado
+              borderSide: const BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: Color(0xFFffae50)),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              icon: const Icon(Icons.arrow_drop_down),
+              borderRadius: BorderRadius.circular(20),
+              value: dropdownValue,
+              onChanged: (String? newValue) {
+                if (newValue != null) {
+                  setState(() {
+                    dropdownValue = newValue;
+                  });
+                }
+              },
+              onTap: () {
+                print("hola mundo");
+              },
+              items: <String>[
+                'Buenos Aires',
+                'Catamarca',
+                'Chaco',
+                'Chubut',
+                'Córdoba',
+                'Corrientes',
+                'Entre Ríos',
+                'Formosa',
+                'Jujuy',
+                'La Pampa',
+                'La Rioja',
+                'Mendoza',
+                'Misiones',
+                'Neuquén',
+                'Río Negro',
+                'Salta',
+                'San Juan',
+                'San Luis',
+                'Santa Cruz',
+                'Santa Fe',
+                'Santiago del Estero',
+                'Tierra del Fuego',
+                'Tucumán'
+              ].map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Row(
+                    children: [
+                      Text(
+                        value,
+                        style: TextStyle(
+                            color: Colors.grey[600]), // Color de la letra
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
           ),
         ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: Text('DropdownButton Demo')),
-      body: Center(child: CustomDropDownButton()),
-    ),
-  ));
 }

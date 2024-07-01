@@ -13,8 +13,8 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: 550,
-      height: 45,
+      width: 450,
+      height: 40,
       child: TextFormField(
         decoration: InputDecoration(
             prefixIcon: icon,
@@ -26,7 +26,7 @@ class TextFieldWidget extends StatelessWidget {
                 borderSide: const BorderSide(color: Colors.white)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(color: Color(0xFFffae50))),
+                borderSide: const BorderSide(color: Colors.grey)),
             filled: true,
             fillColor: Colors.white),
       ),

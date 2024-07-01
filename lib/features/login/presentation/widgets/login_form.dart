@@ -30,12 +30,14 @@ class _LoginFormState extends State<LoginForm> {
               height: 12,
             ),
             const TextFieldWidget(
+              icon: Icon(Icons.email_outlined),
               hintText: 'Email',
             ),
             const SizedBox(
               height: 10,
             ),
             const TextFieldWidget(
+              icon: Icon(Icons.password_outlined),
               hintText: 'Password',
             ),
             const SizedBox(height: 20),
