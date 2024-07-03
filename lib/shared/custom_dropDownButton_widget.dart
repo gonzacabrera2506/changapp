@@ -1,12 +1,17 @@
+// ignore: file_names
 import 'package:changapp/shared/custom_container_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomDropDownButton extends StatefulWidget {
+  final List<String> items;
+  const CustomDropDownButton({super.key, required this.items});
+
   @override
   _CustomDropDownButtonState createState() => _CustomDropDownButtonState();
 }
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
+  final List<String> items = [];
   String dropdownValue = 'Córdoba';
   bool isHovered = false;
 
@@ -53,34 +58,8 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
                   });
                 }
               },
-              onTap: () {
-                print("hola mundo");
-              },
-              items: <String>[
-                'Buenos Aires',
-                'Catamarca',
-                'Chaco',
-                'Chubut',
-                'Córdoba',
-                'Corrientes',
-                'Entre Ríos',
-                'Formosa',
-                'Jujuy',
-                'La Pampa',
-                'La Rioja',
-                'Mendoza',
-                'Misiones',
-                'Neuquén',
-                'Río Negro',
-                'Salta',
-                'San Juan',
-                'San Luis',
-                'Santa Cruz',
-                'Santa Fe',
-                'Santiago del Estero',
-                'Tierra del Fuego',
-                'Tucumán'
-              ].map<DropdownMenuItem<String>>((String value) {
+              onTap: () {},
+              items: widget.items.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Row(

@@ -13,6 +13,31 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<String> items = [
+    'Buenos Aires',
+    'Catamarca',
+    'Chaco',
+    'Chubut',
+    'Córdoba',
+    'Corrientes',
+    'Entre Ríos',
+    'Formosa',
+    'Jujuy',
+    'La Pampa',
+    'La Rioja',
+    'Mendoza',
+    'Misiones',
+    'Neuquén',
+    'Río Negro',
+    'Salta',
+    'San Juan',
+    'San Luis',
+    'Santa Cruz',
+    'Santa Fe',
+    'Santiago del Estero',
+    'Tierra del Fuego',
+    'Tucumán'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +115,7 @@ class _SignupState extends State<Signup> {
                         children: [
                           const Icon(Icons.location_city_outlined),
                           const SizedBox(width: 3),
-                          CustomDropDownButton(),
+                          CustomDropDownButton(items: items),
                         ],
                       ),
                       const SizedBox(
