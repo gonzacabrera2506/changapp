@@ -29,7 +29,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
         });
       },
       child: CustomContainer(
-        width: 250,
+        width: 450,
         height: 40,
         child: InputDecorator(
           decoration: InputDecoration(
