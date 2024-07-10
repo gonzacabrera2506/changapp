@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "397332425593",
+    "project_id": "changapp-23d01",
+    "storage_bucket": "changapp-23d01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397332425593:android:ee445aabbb100d17a65da8",
+        "android_client_info": {
+          "package_name": "com.example.changapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6fjdIQMosFDkhWr3t3_QmMZWydNHO6Cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

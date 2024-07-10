@@ -12,7 +12,7 @@ class CustomDropDownButton extends StatefulWidget {
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
   final List<String> items = [];
-  String dropdownValue = 'Córdoba';
+  String? dropdownValue;
   bool isHovered = false;
 
   @override
@@ -29,7 +29,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
         });
       },
       child: CustomContainer(
-        width: 450,
+        width: 350,
         height: 40,
         child: InputDecorator(
           decoration: InputDecoration(
@@ -48,6 +48,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+              hint: const Text('Seleccione una provincia:'),
               icon: const Icon(Icons.arrow_drop_down),
               borderRadius: BorderRadius.circular(20),
               value: dropdownValue,
@@ -67,7 +68,9 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
                       Text(
                         value,
                         style: TextStyle(
-                            color: Colors.grey[600]), // Color de la letra
+                            color: dropdownValue == value
+                                ? Colors.black87
+                                : Colors.grey[500]), // Color de la letra
                       ),
                     ],
                   ),

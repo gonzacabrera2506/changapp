@@ -37,12 +37,12 @@ class _LoginFormState extends State<LoginForm> {
               height: 10,
             ),
             const TextFieldWidget(
-              icon: Icon(Icons.password_outlined),
+              icon: Icon(Icons.lock_outline),
               hintText: 'Password',
             ),
             const SizedBox(height: 20),
             //
-            ButtonWidget(
+            CustomButtonWidget(
               text: 'Iniciar Sesión',
               colorText: Colors.black,
               action: () {},
@@ -54,7 +54,7 @@ class _LoginFormState extends State<LoginForm> {
               height: 10,
             ),
             //
-            ButtonWidget(
+            CustomButtonWidget(
               text: 'Registrarme',
               colorText: Colors.black,
               action: () {

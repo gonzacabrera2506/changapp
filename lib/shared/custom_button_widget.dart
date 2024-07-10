@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
+class CustomButtonWidget extends StatelessWidget {
   final String text;
   final Color colorText;
   final Function()? action;
-  const ButtonWidget(
+  const CustomButtonWidget(
       {super.key, required this.text, required this.colorText, this.action});
 
   @override

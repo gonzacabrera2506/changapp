@@ -13,24 +13,22 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: 450,
+      width: 350,
       height: 40,
-      child: Center(
-        child: TextFormField(
-          decoration: InputDecoration(
-              prefixIcon: icon,
-              hintText: hintText,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: const BorderSide(color: Colors.white)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: const BorderSide(color: Colors.grey)),
-              filled: true,
-              fillColor: Colors.white),
-        ),
+      child: TextFormField(
+        decoration: InputDecoration(
+            prefixIcon: icon,
+            hintText: hintText,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: const BorderSide(color: Colors.white)),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: const BorderSide(color: Colors.grey)),
+            filled: true,
+            fillColor: Colors.white),
       ),
     );
   }

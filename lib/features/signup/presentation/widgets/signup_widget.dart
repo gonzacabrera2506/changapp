@@ -1,7 +1,6 @@
-import 'package:changapp/features/home/presentation/home_screen.dart';
 import 'package:changapp/shared/custom_button_widget.dart';
-import 'package:changapp/shared/custom_dropDownButton_widget.dart';
 import 'package:changapp/shared/custom_row_widget.dart';
+import 'package:changapp/shared/custom_switch_widget.dart';
 import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,48 +13,49 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<String> items = [
-    'Buenos Aires',
-    'Catamarca',
-    'Chaco',
-    'Chubut',
-    'Córdoba',
-    'Corrientes',
-    'Entre Ríos',
-    'Formosa',
-    'Jujuy',
-    'La Pampa',
-    'La Rioja',
-    'Mendoza',
-    'Misiones',
-    'Neuquén',
-    'Río Negro',
-    'Salta',
-    'San Juan',
-    'San Luis',
-    'Santa Cruz',
-    'Santa Fe',
-    'Santiago del Estero',
-    'Tierra del Fuego',
-    'Tucumán'
-  ];
+  bool light = false;
+
+  void _updateLabelCustomButtom(bool value) {
+    setState(() {
+      light = value;
+    });
+    if (value) {
+      print('hola');
+    } else {
+      print('hola 2');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(50.0),
       child: Form(
-          key: _formKey,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
             const SizedBox(
               height: 20,
             ),
-            Image.asset('assets/changappLogo.png', width: 175),
+            CustomRowWidget(
+                alignment: MainAxisAlignment.center,
+                widgets: [Image.asset('assets/changappLogo.png', width: 180)]),
             const SizedBox(
-              height: 6,
+              height: 10,
             ),
-            const Text("Datos Personales",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const CustomRowWidget(
+                alignment: MainAxisAlignment.center,
+                widgets: [
+                  Text(
+                    "Datos Personales",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ]),
+            const SizedBox(
+              height: 5,
+            ),
             const CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
@@ -98,30 +98,6 @@ class _SignupState extends State<Signup> {
             const CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.location_on_outlined),
-                SizedBox(width: 3),
-                TextFieldWidget(
-                  hintText: 'Dirección',
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomRowWidget(
-              alignment: MainAxisAlignment.center,
-              widgets: [
-                const Icon(Icons.location_city_outlined),
-                const SizedBox(width: 3),
-                CustomDropDownButton(items: items),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const CustomRowWidget(
-              alignment: MainAxisAlignment.center,
-              widgets: [
                 Icon(Icons.phone_outlined),
                 SizedBox(width: 3),
                 TextFieldWidget(
@@ -130,7 +106,18 @@ class _SignupState extends State<Signup> {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
+            ),
+            const CustomRowWidget(
+                alignment: MainAxisAlignment.center,
+                widgets: [
+                  Text(
+                    "Datos de login",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ]),
+            const SizedBox(
+              height: 5,
             ),
             const CustomRowWidget(
               alignment: MainAxisAlignment.center,
@@ -143,21 +130,43 @@ class _SignupState extends State<Signup> {
               ],
             ),
             const SizedBox(
+              height: 10,
+            ),
+            const CustomRowWidget(
+              alignment: MainAxisAlignment.center,
+              widgets: [
+                Icon(Icons.lock_outline),
+                SizedBox(width: 3),
+                TextFieldWidget(
+                  hintText: 'Password',
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const SizedBox(
               height: 20,
             ),
-            ButtonWidget(
-              text: 'Siguiente',
-              colorText: Colors.black,
-              action: () {
-                Future.delayed(const Duration(seconds: 2), () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
-                });
-              },
+            CustomRowWidget(
+              alignment: MainAxisAlignment.center,
+              widgets: [
+                CustomSwitchButton(
+                  action: _updateLabelCustomButtom,
+                ),
+                const SizedBox(width: 2),
+                const Text('Deseo demandar Changas'),
+                const SizedBox(width: 18),
+                CustomButtonWidget(
+                  text: 'Siguiente',
+                  colorText: Colors.black,
+                  action: () {},
+                )
+              ],
             ),
-          ])),
+          ],
+        ),
+      ),
     );
   }
 }
