@@ -2,12 +2,14 @@ import 'package:changapp/shared/custom_container_widget.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  final String? Function(String?)? validation;
   final String hintText;
   final Icon? icon;
   const TextFieldWidget({
     super.key,
     required this.hintText,
     this.icon,
+    required this.validation,
   });
 
   @override
@@ -16,6 +18,7 @@ class TextFieldWidget extends StatelessWidget {
       width: 350,
       height: 40,
       child: TextFormField(
+        validator: validation,
         decoration: InputDecoration(
             prefixIcon: icon,
             hintText: hintText,
