@@ -14,16 +14,13 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool light = false;
+  String buttonText = "Siguiente";
 
   void _updateLabelCustomButtom(bool value) {
     setState(() {
       light = value;
+      buttonText = value ? 'Registrar' : 'Siguiente';
     });
-    if (value) {
-      print('hola');
-    } else {
-      print('hola 2');
-    }
   }
 
   @override
@@ -158,9 +155,11 @@ class _SignupState extends State<Signup> {
                 const Text('Deseo demandar Changas'),
                 const SizedBox(width: 18),
                 CustomButtonWidget(
-                  text: 'Siguiente',
+                  text: buttonText,
                   colorText: Colors.black,
-                  action: () {},
+                  action: () {
+                    if (light) {}
+                  },
                 )
               ],
             ),
