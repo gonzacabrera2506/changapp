@@ -9,7 +9,7 @@ class TextFieldWidget extends StatelessWidget {
     super.key,
     required this.hintText,
     this.icon,
-    required this.validation,
+    this.validation,
   });
 
   @override

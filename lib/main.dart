@@ -1,8 +1,12 @@
 import 'package:changapp/config/router/app_router.dart';
 import 'package:changapp/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:form_validator/form_validator.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  ValidationBuilder.setLocale('es_AR');
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

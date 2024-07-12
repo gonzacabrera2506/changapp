@@ -54,53 +54,65 @@ class _SignupState extends State<Signup> {
             const SizedBox(
               height: 5,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.person_outline),
-                SizedBox(width: 3),
+                const Icon(Icons.person_outline),
+                const SizedBox(width: 3),
                 TextFieldWidget(
                   hintText: 'Nombre/s',
-                  validation: ,
+                  validation: ValidationBuilder()
+                      .required()
+                      .minLength(3)
+                      .maxLength(30)
+                      .build(),
                 ),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.person),
-                SizedBox(width: 3),
+                const Icon(Icons.person),
+                const SizedBox(width: 3),
                 TextFieldWidget(
                   hintText: 'Apellido',
+                  validation: ValidationBuilder()
+                      .required()
+                      .minLength(3)
+                      .maxLength(30)
+                      .build(),
                 ),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.badge_outlined),
-                SizedBox(width: 3),
+                const Icon(Icons.badge_outlined),
+                const SizedBox(width: 3),
                 TextFieldWidget(
                   hintText: 'Nombre fantasia(opcional)',
+                  validation:
+                      ValidationBuilder().minLength(3).maxLength(30).build(),
                 ),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.phone_outlined),
-                SizedBox(width: 3),
+                const Icon(Icons.phone_outlined),
+                const SizedBox(width: 3),
                 TextFieldWidget(
                   hintText: 'Teléfono de contacto',
+                  validation: ValidationBuilder().required().phone().build(),
                 ),
               ],
             ),
