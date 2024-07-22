@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 
 void main() {
-  ValidationBuilder.setLocale('es_AR');
+  ValidationBuilder.setLocale('es');
   runApp(const MyApp());
 }
 

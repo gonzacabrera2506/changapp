@@ -4,6 +4,7 @@ import 'package:changapp/shared/custom_switch_widget.dart';
 import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -172,6 +173,10 @@ class _SignupState extends State<Signup> {
                   text: buttonText,
                   colorText: Colors.black,
                   action: () {
+                    MotionToast.success(
+                      title: const Text('Hola mundo'),
+                      description: const Text('Descripcion'),
+                    ).show(context);
                     if (light) {
                       // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
                     } else {
