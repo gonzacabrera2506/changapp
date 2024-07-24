@@ -28,7 +28,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(50.0),
+      padding: const EdgeInsets.all(1.0),
       child: Form(
         key: _formKey,
         child: Column(
@@ -59,7 +59,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 const Icon(Icons.person_outline),
-                const SizedBox(width: 3),
+                const SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Nombre/s',
                   validation: ValidationBuilder()
@@ -77,7 +77,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 const Icon(Icons.person),
-                const SizedBox(width: 3),
+                const SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Apellido',
                   validation: ValidationBuilder()
@@ -95,7 +95,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 const Icon(Icons.badge_outlined),
-                const SizedBox(width: 3),
+                const SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Nombre fantasia(opcional)',
                   validation:
@@ -110,7 +110,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 const Icon(Icons.phone_outlined),
-                const SizedBox(width: 3),
+                const SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Teléfono de contacto',
                   validation: ValidationBuilder().required().phone().build(),
@@ -135,7 +135,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 Icon(Icons.email_outlined),
-                SizedBox(width: 3),
+                SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Email',
                 ),
@@ -148,7 +148,7 @@ class _SignupState extends State<Signup> {
               alignment: MainAxisAlignment.center,
               widgets: [
                 Icon(Icons.lock_outline),
-                SizedBox(width: 3),
+                SizedBox(width: 1),
                 TextFieldWidget(
                   hintText: 'Password',
                 ),
@@ -168,7 +168,7 @@ class _SignupState extends State<Signup> {
                 ),
                 const SizedBox(width: 2),
                 const Text('Deseo demandar Changas'),
-                const SizedBox(width: 18),
+                const SizedBox(width: 15),
                 CustomButtonWidget(
                   text: buttonText,
                   colorText: Colors.black,

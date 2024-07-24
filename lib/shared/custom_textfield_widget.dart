@@ -15,7 +15,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: 350,
+      width: 320,
       height: 40,
       child: TextFormField(
         validator: validation,

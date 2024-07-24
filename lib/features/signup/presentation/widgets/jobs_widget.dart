@@ -1,17 +1,27 @@
+import 'package:changapp/shared/custom_gridViewWoven_widget.dart';
 import 'package:flutter/material.dart';
 
-class JobsWidget extends StatelessWidget {
-  final Text label;
-  const JobsWidget({super.key, required this.label});
+class JobsWidget extends StatefulWidget {
+  const JobsWidget({super.key});
 
+  @override
+  State<JobsWidget> createState() => _JobsWidgetState();
+}
+
+class _JobsWidgetState extends State<JobsWidget> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-      child: Chip(
-        label: label,
-        avatar: const Icon(Icons.access_alarm_outlined),
-      ),
-    );
+        padding: const EdgeInsets.all(1.0),
+        child: Form(
+            key: _formKey,
+            // ignore: prefer_const_constructors
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  CustomGridViewWoven(),
+                ])));
   }
 }
