@@ -1,5 +1,6 @@
-import 'package:changapp/shared/custom_gridViewWoven_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:changapp/shared/custom_alignedGridView_widget.dart';
+import 'package:changapp/constants/changas.dart';
 
 class JobsWidget extends StatefulWidget {
   const JobsWidget({super.key});
@@ -20,8 +21,11 @@ class _JobsWidgetState extends State<JobsWidget> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  CustomGridViewWoven(),
+                children: [
+                  CustomAlignedgridviewWidget(
+                    changasIcon: changasIcons,
+                    changasDescription: changasDescription,
+                  ),
                 ])));
   }
 }
