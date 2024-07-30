@@ -61,6 +61,7 @@ class _SignupState extends State<Signup> {
                 const Icon(Icons.person_outline),
                 const SizedBox(width: 1),
                 TextFieldWidget(
+                  fieldName: "nombre",
                   hintText: 'Nombre/s',
                   validation: ValidationBuilder()
                       .required()
@@ -79,6 +80,7 @@ class _SignupState extends State<Signup> {
                 const Icon(Icons.person),
                 const SizedBox(width: 1),
                 TextFieldWidget(
+                  fieldName: "apellido",
                   hintText: 'Apellido',
                   validation: ValidationBuilder()
                       .required()
@@ -97,7 +99,8 @@ class _SignupState extends State<Signup> {
                 const Icon(Icons.badge_outlined),
                 const SizedBox(width: 1),
                 TextFieldWidget(
-                  hintText: 'Nombre fantasia(opcional)',
+                  fieldName: "nombre fantasía",
+                  hintText: 'Nombre fantasia',
                   validation:
                       ValidationBuilder().minLength(3).maxLength(30).build(),
                 ),
@@ -112,6 +115,7 @@ class _SignupState extends State<Signup> {
                 const Icon(Icons.phone_outlined),
                 const SizedBox(width: 1),
                 TextFieldWidget(
+                  fieldName: "teléfono",
                   hintText: 'Teléfono de contacto',
                   validation: ValidationBuilder().required().phone().build(),
                 ),
@@ -131,26 +135,34 @@ class _SignupState extends State<Signup> {
             const SizedBox(
               height: 5,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.email_outlined),
-                SizedBox(width: 1),
+                const Icon(Icons.email_outlined),
+                const SizedBox(width: 1),
                 TextFieldWidget(
+                  fieldName: "email",
                   hintText: 'Email',
+                  validation: ValidationBuilder().required().email().build(),
                 ),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomRowWidget(
+            CustomRowWidget(
               alignment: MainAxisAlignment.center,
               widgets: [
-                Icon(Icons.lock_outline),
-                SizedBox(width: 1),
+                const Icon(Icons.lock_outline),
+                const SizedBox(width: 1),
                 TextFieldWidget(
+                  fieldName: "password",
                   hintText: 'Password',
+                  validation: ValidationBuilder()
+                      .required()
+                      .minLength(6)
+                      .maxLength(15)
+                      .build(),
                 ),
               ],
             ),
@@ -173,15 +185,20 @@ class _SignupState extends State<Signup> {
                   text: buttonText,
                   colorText: Colors.black,
                   action: () {
+                    if (light && _formKey.currentState!.validate()) {
+                      print("form valido");
+                      // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
+                    } else {
+                      //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
+                      print("form invalido");
+                    }
+
+                    /*
                     MotionToast.success(
                       title: const Text('Hola mundo'),
                       description: const Text('Descripcion'),
                     ).show(context);
-                    if (light) {
-                      // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
-                    } else {
-                      //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
-                    }
+                    */
                   },
                 )
               ],

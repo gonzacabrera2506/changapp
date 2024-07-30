@@ -1,13 +1,26 @@
-import 'package:changapp/shared/custom_row_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:changapp/shared/custom_row_widget.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class CustomAlignedgridviewWidget extends StatelessWidget {
+class CustomAlignedgridviewWidget extends StatefulWidget {
   final List<Icon> changasIcon;
   final List<String> changasDescription;
 
-  const CustomAlignedgridviewWidget(
-      {super.key, required this.changasDescription, required this.changasIcon});
+  const CustomAlignedgridviewWidget({
+    super.key,
+    required this.changasDescription,
+    required this.changasIcon,
+  });
+
+  @override
+  State<CustomAlignedgridviewWidget> createState() =>
+      _CustomAlignedgridviewWidgetState();
+}
+
+class _CustomAlignedgridviewWidgetState
+    extends State<CustomAlignedgridviewWidget> {
+  List<bool> _selectedItems = List<bool>.filled(27, false);
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +39,18 @@ class CustomAlignedgridviewWidget extends StatelessWidget {
               crossAxisSpacing: 15,
               itemCount: 27,
               itemBuilder: (context, index) => GestureDetector(
-                    onTap: () => print("hola"),
+                    onTap: () {
+                      setState(() {
+                        _selectedItems[index] = !_selectedItems[index];
+                      });
+                    },
                     child: Container(
                       width: 75,
                       height: 95,
                       decoration: BoxDecoration(
-                          color: const Color(0xFFffae50),
+                          color: _selectedItems[index]
+                              ? const Color(0xFFF4D8B9)
+                              : const Color(0xFFffae50),
                           boxShadow: const [
                             BoxShadow(blurRadius: 3.5, color: Colors.grey)
                           ],
@@ -42,7 +61,7 @@ class CustomAlignedgridviewWidget extends StatelessWidget {
                           CustomRowWidget(
                             alignment: MainAxisAlignment.center,
                             widgets: [
-                              changasIcon[index],
+                              widget.changasIcon[index],
                             ],
                           ),
                           const SizedBox(height: 10),
@@ -50,7 +69,7 @@ class CustomAlignedgridviewWidget extends StatelessWidget {
                             alignment: MainAxisAlignment.center,
                             widgets: [
                               Text(
-                                changasDescription[index],
+                                widget.changasDescription[index],
                                 style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 12,
@@ -60,7 +79,7 @@ class CustomAlignedgridviewWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
+                    ).animate().scale(duration: 300.ms),
                   ))),
     );
   }
