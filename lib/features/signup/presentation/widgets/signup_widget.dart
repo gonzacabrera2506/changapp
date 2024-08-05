@@ -4,6 +4,7 @@ import 'package:changapp/shared/custom_switch_widget.dart';
 import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class Signup extends StatefulWidget {
@@ -156,6 +157,7 @@ class _SignupState extends State<Signup> {
                 const Icon(Icons.lock_outline),
                 const SizedBox(width: 1),
                 TextFieldWidget(
+                  obscureText: true,
                   fieldName: "password",
                   hintText: 'Password',
                   validation: ValidationBuilder()
@@ -191,6 +193,7 @@ class _SignupState extends State<Signup> {
                     } else {
                       //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
                       print("form invalido");
+                      context.push('/choose-jobs');
                     }
 
                     /*

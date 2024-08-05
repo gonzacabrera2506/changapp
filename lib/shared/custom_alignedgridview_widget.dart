@@ -29,7 +29,7 @@ class _CustomAlignedgridviewWidgetState
     final double screenHeight = screenSize.height;
 
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(5.0),
       child: SizedBox(
           width: screenWidth - 45,
           height: screenHeight - 45,

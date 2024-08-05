@@ -6,12 +6,14 @@ class TextFieldWidget extends StatelessWidget {
   final String hintText;
   final Icon? icon;
   final String? fieldName;
+  final bool obscureText;
   const TextFieldWidget({
     super.key,
     required this.hintText,
     this.icon,
     this.validation,
     this.fieldName,
+    this.obscureText = false,
   });
 
   @override
@@ -20,6 +22,7 @@ class TextFieldWidget extends StatelessWidget {
       width: 320,
       height: 40,
       child: TextFormField(
+        obscureText: obscureText,
         onTap: () {
           ScaffoldMessenger.of(context).clearSnackBars();
         },
