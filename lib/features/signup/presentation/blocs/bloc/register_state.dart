@@ -6,12 +6,12 @@ class RegisterState extends Equatable {
   final bool isSuccess;
   final bool isFailure;
 
-  const RegisterState(
-    this.isChecking,
-    this.isSubmitting,
-    this.isSuccess,
-    this.isFailure,
-  );
+  const RegisterState({
+    this.isChecking = false,
+    this.isSubmitting = false,
+    this.isSuccess = false,
+    this.isFailure = false,
+  });
 
   RegisterState copyWith({
     bool? isChecking,
@@ -20,13 +20,18 @@ class RegisterState extends Equatable {
     bool? isFailure,
   }) {
     return RegisterState(
-      isChecking ?? this.isChecking,
-      isSubmitting ?? this.isSubmitting,
-      isSuccess ?? this.isSuccess,
-      isFailure ?? this.isFailure,
+      isChecking: isChecking ?? this.isChecking,
+      isSubmitting: isSubmitting ?? this.isSubmitting,
+      isSuccess: isSuccess ?? this.isSuccess,
+      isFailure: isFailure ?? this.isFailure,
     );
   }
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [
+        isChecking,
+        isSubmitting,
+        isSuccess,
+        isFailure,
+      ];
 }
