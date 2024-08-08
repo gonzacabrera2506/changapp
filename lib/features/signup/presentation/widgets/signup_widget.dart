@@ -2,6 +2,7 @@ import 'package:changapp/shared/custom_button_widget.dart';
 import 'package:changapp/shared/custom_row_widget.dart';
 import 'package:changapp/shared/custom_switch_widget.dart';
 import 'package:changapp/shared/custom_textfield_widget.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:go_router/go_router.dart';
@@ -186,9 +187,27 @@ class _SignupState extends State<Signup> {
                 CustomButtonWidget(
                   text: buttonText,
                   colorText: Colors.black,
-                  action: () {
+                  action: () async {
                     if (light && _formKey.currentState!.validate()) {
                       print("form valido");
+                      final dio = Dio();
+                      try {
+                        Response response = await dio.get(
+                            'http://localhost:3000/register/email-exists?email=juan.perez@example.net');
+                        if (response.statusCode == 200) {
+                          // Manejar la respuesta exitosa
+                          print('El email no existe: ${response.data}');
+                        }
+                      } on DioException catch (e) {
+                        if (e.response != null &&
+                            e.response?.statusCode == 400) {
+                          // Manejar el error 400 - Bad Request
+                          print('El email ya existe: ${e.response?.data}');
+                        } else {
+                          // Manejar otros tipos de errores de Dio
+                          print('Error de Dio: ${e.message}');
+                        }
+                      } catch (e) {}
                       // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
                     } else {
                       //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
