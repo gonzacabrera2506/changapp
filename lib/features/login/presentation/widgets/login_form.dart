@@ -13,6 +13,8 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +31,17 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBox(
               height: 12,
             ),
-            const TextFieldWidget(
-              icon: Icon(Icons.email_outlined),
+            TextFieldWidget(
+              controller: _email,
+              icon: const Icon(Icons.email_outlined),
               hintText: 'Email',
             ),
             const SizedBox(
               height: 10,
             ),
-            const TextFieldWidget(
-              icon: Icon(Icons.lock_outline),
+            TextFieldWidget(
+              controller: _password,
+              icon: const Icon(Icons.lock_outline),
               hintText: 'Password',
             ),
             const SizedBox(height: 20),

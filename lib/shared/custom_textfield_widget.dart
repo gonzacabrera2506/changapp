@@ -2,6 +2,7 @@ import 'package:changapp/shared/custom_container_widget.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  final TextEditingController controller;
   final String? Function(String?)? validation;
   final String hintText;
   final Icon? icon;
@@ -14,6 +15,7 @@ class TextFieldWidget extends StatelessWidget {
     this.validation,
     this.fieldName,
     this.obscureText = false,
+    required this.controller,
   });
 
   @override
@@ -22,6 +24,7 @@ class TextFieldWidget extends StatelessWidget {
       width: 320,
       height: 40,
       child: TextFormField(
+        controller: controller,
         obscureText: obscureText,
         onTap: () {
           ScaffoldMessenger.of(context).clearSnackBars();

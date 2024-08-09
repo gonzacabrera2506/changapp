@@ -5,12 +5,14 @@ class RegisterState extends Equatable {
   final bool isSubmitting;
   final bool isSuccess;
   final bool isFailure;
+  final String errorMessage;
 
   const RegisterState({
     this.isChecking = false,
     this.isSubmitting = false,
     this.isSuccess = false,
     this.isFailure = false,
+    this.errorMessage = '',
   });
 
   RegisterState copyWith({
@@ -18,12 +20,14 @@ class RegisterState extends Equatable {
     bool? isSubmitting,
     bool? isSuccess,
     bool? isFailure,
+    String? errorMessage,
   }) {
     return RegisterState(
       isChecking: isChecking ?? this.isChecking,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       isSuccess: isSuccess ?? this.isSuccess,
       isFailure: isFailure ?? this.isFailure,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
