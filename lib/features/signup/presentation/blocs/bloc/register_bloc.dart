@@ -21,7 +21,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       if (response.statusCode == 200) {
         emit(state.copyWith(isChecking: false, isSuccess: true));
       }
-      print(response);
     } on DioException catch (e) {
       if (e.response != null && e.response?.statusCode == 400) {
         emit(state.copyWith(
