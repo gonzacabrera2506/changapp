@@ -32,15 +32,16 @@ class TextFieldWidget extends StatelessWidget {
         validator: (value) {
           final result = validation?.call(value);
           if (result != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("El campo $fieldName es requerido."),
-                backgroundColor: Colors.red,
-                duration: const Duration(seconds: 5),
-              ),
-            );
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(result),
+                  backgroundColor: Colors.red,
+                  duration: const Duration(seconds: 5),
+                ),
+              );
+            });
           }
-          return null;
         },
         decoration: InputDecoration(
             prefixIcon: icon,
@@ -49,12 +50,9 @@ class TextFieldWidget extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: Colors.white)),
-            errorBorder: const OutlineInputBorder(borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: Colors.grey)),
-            focusedErrorBorder:
-                const OutlineInputBorder(borderSide: BorderSide.none),
             filled: true,
             fillColor: Colors.white),
       ),

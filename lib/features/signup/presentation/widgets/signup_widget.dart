@@ -25,6 +25,7 @@ class _SignupState extends State<Signup> {
   final TextEditingController _password = TextEditingController();
   bool light = false;
   String buttonText = "Siguiente";
+  bool isFormInvalid = false;
 
   void _updateLabelCustomButtom(bool value) {
     setState(() {
@@ -220,10 +221,14 @@ class _SignupState extends State<Signup> {
                           text: buttonText,
                           colorText: Colors.black,
                           action: () async {
-                            if (light &&
-                                _formKey.currentState!.validate() == true) {
-                              print(_formKey.currentState!.validate());
+                            setState(() {
+                              isFormInvalid =
+                                  !_formKey.currentState!.validate();
+                            });
+                            if (light && isFormInvalid) {
+                              print(_formKey.currentState);
                               return;
+
                               try {
                                 final email = _email.text;
                                 newContext
@@ -235,7 +240,7 @@ class _SignupState extends State<Signup> {
                               // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
                             } else {
                               //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
-                              print("form invalido");
+                              print(_formKey.currentState!.validate());
                               //context.push('/choose-jobs');
                             }
                           },
