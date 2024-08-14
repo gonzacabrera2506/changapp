@@ -128,7 +128,7 @@ class _SignupState extends State<Signup> {
                           controller: _nombreFantasia,
                           fieldName: "nombre fantasía",
                           hintText: 'Nombre fantasia',
-                          validation: ValidationBuilder()
+                          validation: ValidationBuilder(requiredMessage: "Hola")
                               .minLength(3)
                               .maxLength(30)
                               .build(),
@@ -221,12 +221,8 @@ class _SignupState extends State<Signup> {
                           text: buttonText,
                           colorText: Colors.black,
                           action: () async {
-                            setState(() {
-                              isFormInvalid =
-                                  !_formKey.currentState!.validate();
-                            });
                             if (light && isFormInvalid) {
-                              print(_formKey.currentState);
+                              print(isFormInvalid);
                               return;
 
                               try {

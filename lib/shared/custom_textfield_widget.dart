@@ -20,41 +20,25 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomContainer(
-      width: 320,
-      height: 40,
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        onTap: () {
-          ScaffoldMessenger.of(context).clearSnackBars();
-        },
-        validator: (value) {
-          final result = validation?.call(value);
-          if (result != null) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(result),
-                  backgroundColor: Colors.red,
-                  duration: const Duration(seconds: 5),
-                ),
-              );
-            });
-          }
-        },
-        decoration: InputDecoration(
-            prefixIcon: icon,
-            hintText: hintText,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(color: Colors.white)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(color: Colors.grey)),
-            filled: true,
-            fillColor: Colors.white),
+    return TextFormField(
+      controller: controller,
+      obscureText: obscureText,
+      // onTap: () {
+      //   ScaffoldMessenger.of(context).clearSnackBars();
+      // },
+      validator: validation,
+      decoration: InputDecoration(
+        prefixIcon: icon,
+        hintText: hintText,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(color: Colors.white)),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(color: Colors.grey)),
+        filled: true,
+        fillColor: Colors.white,
       ),
     );
   }
