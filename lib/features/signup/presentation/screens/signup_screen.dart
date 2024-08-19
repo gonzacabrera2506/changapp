@@ -13,16 +13,14 @@ class SignupScreen extends StatelessWidget {
         toolbarHeight: 30,
       ),
       backgroundColor: Colors.white,
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
+        //scrollDirection: Axis.horizontal,
         child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Signup(),
-            ),
-          ],
+            child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width * 0.95,
+          ),
+          child: const Signup(),
         )),
       ),
     );

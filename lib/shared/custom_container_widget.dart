@@ -14,6 +14,14 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return child;
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: const [BoxShadow(blurRadius: 3.5, color: Colors.grey)],
+          borderRadius: BorderRadius.circular(20)),
+      child: child,
+    );
   }
 }

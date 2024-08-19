@@ -6,6 +6,7 @@ import 'package:changapp/shared/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_validator/form_validator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class Signup extends StatefulWidget {
@@ -37,7 +38,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(1.0),
+      padding: const EdgeInsets.all(5.0),
       child: BlocProvider(
           create: (context) => RegisterBloc(),
           child: Builder(builder: (BuildContext newContext) {
@@ -128,7 +129,7 @@ class _SignupState extends State<Signup> {
                           controller: _nombreFantasia,
                           fieldName: "nombre fantasía",
                           hintText: 'Nombre fantasia',
-                          validation: ValidationBuilder(requiredMessage: "Hola")
+                          validation: ValidationBuilder()
                               .minLength(3)
                               .maxLength(30)
                               .build(),
@@ -203,10 +204,7 @@ class _SignupState extends State<Signup> {
                       ],
                     ),
                     const SizedBox(
-                      height: 10,
-                    ),
-                    const SizedBox(
-                      height: 20,
+                      height: 16,
                     ),
                     CustomRowWidget(
                       alignment: MainAxisAlignment.center,
@@ -215,31 +213,39 @@ class _SignupState extends State<Signup> {
                           action: _updateLabelCustomButtom,
                         ),
                         const SizedBox(width: 2),
-                        const Text('Deseo demandar Changas'),
+                        const Flexible(
+                            child: Text(
+                          'Solo ver Changas',
+                          overflow: TextOverflow.ellipsis,
+                        )),
                         const SizedBox(width: 15),
-                        CustomButtonWidget(
-                          text: buttonText,
-                          colorText: Colors.black,
-                          action: () async {
-                            if (light && isFormInvalid) {
-                              print(isFormInvalid);
-                              return;
+                        Flexible(
+                          child: CustomButtonWidget(
+                            text: buttonText,
+                            colorText: Colors.black,
+                            action: () async {
+                              _formKey.currentState!.validate();
 
-                              try {
-                                final email = _email.text;
-                                newContext
-                                    .read<RegisterBloc>()
-                                    .add(CheckEmailExists(email: email));
-                              } catch (e) {
-                                print(e);
+                              if (light && _formKey.currentState!.validate()) {
+                                print("registrar user comun");
+                                //LOGICA PARA REGISTRAR USUARIO QUE SOLO QUIERE CHANGAS
+                              }
+                              if (!light && _formKey.currentState!.validate()) {
+                                //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
+                                print("redirigir a choose jobs");
+                                try {
+                                  final email = _email.text;
+                                  newContext
+                                      .read<RegisterBloc>()
+                                      .add(CheckEmailExists(email: email));
+                                } catch (e) {
+                                  print(e);
+                                }
+                                //context.push("/choose-jobs");
                               }
                               // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
-                            } else {
-                              //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
-                              print(_formKey.currentState!.validate());
-                              //context.push('/choose-jobs');
-                            }
-                          },
+                            },
+                          ),
                         )
                       ],
                     ),
