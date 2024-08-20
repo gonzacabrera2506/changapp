@@ -13,7 +13,7 @@ class CheckEmailExists extends RegisterEvent {
   List<Object?> get props => [email];
 }
 
-class RegisterUser extends RegisterEvent {
+class RegisterChangasViewerUser extends RegisterEvent {
   final String nombre;
   final String apellido;
   final String nombreFantasia;
@@ -21,7 +21,7 @@ class RegisterUser extends RegisterEvent {
   final String email;
   final String password;
 
-  const RegisterUser(
+  const RegisterChangasViewerUser(
       {required this.nombre,
       required this.apellido,
       required this.nombreFantasia,

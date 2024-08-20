@@ -36,4 +36,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       }
     }
   }
+
+  void _onRegisterChangasViewerUser(
+      RegisterChangasViewerUser event, Emitter<RegisterState> emit) async {
+    emit(state.copyWith(isChecking: true, isFailure: false));
+  }
 }

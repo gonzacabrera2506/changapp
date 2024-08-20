@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class Signup extends StatefulWidget {
@@ -17,6 +18,8 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  var logger = Logger();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nombre = TextEditingController();
   final TextEditingController _apellido = TextEditingController();
@@ -48,6 +51,8 @@ class _SignupState extends State<Signup> {
                   MotionToast.error(
                     title: const Text('Error'),
                     description: Text(state.errorMessage),
+                    toastDuration: const Duration(seconds: 2),
+                    barrierColor: Colors.red,
                   ).show(context);
                 }
               },
@@ -224,26 +229,29 @@ class _SignupState extends State<Signup> {
                             text: buttonText,
                             colorText: Colors.black,
                             action: () async {
+                              //SE DEBE AGREGAR UN SPINNER DE CARGA
+
                               _formKey.currentState!.validate();
 
                               if (light && _formKey.currentState!.validate()) {
                                 print("registrar user comun");
                                 //LOGICA PARA REGISTRAR USUARIO QUE SOLO QUIERE CHANGAS
                               }
+
+                              // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
+                              // SE DEBE ACTUALIZAR EL STATE CON LOS DATOS RECOLECTADOS DEL FORM DE SIGNUP Y LLEVARLOS
+                              // A LA SCREEN DE SELECCION DE CHANGAS
                               if (!light && _formKey.currentState!.validate()) {
-                                //LOGICA DE USUARIO OFERTANTE DE CHANGAS - REDIRECCION A SCREEN DE SELECCION DE CHANGAS
-                                print("redirigir a choose jobs");
                                 try {
                                   final email = _email.text;
                                   newContext
                                       .read<RegisterBloc>()
                                       .add(CheckEmailExists(email: email));
-                                } catch (e) {
-                                  print(e);
+                                } catch (e, stacktrace) {
+                                  logger.e(e, stackTrace: stacktrace);
                                 }
-                                //context.push("/choose-jobs");
+                                context.push("/choose-jobs");
                               }
-                              // LOGICA DE REGISTRO DE USUARIO QUE DESEA VER Y DEMANDAR CHANGAS
                             },
                           ),
                         )
